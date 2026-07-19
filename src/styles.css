@@ -1,0 +1,313 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+@import "leaflet/dist/leaflet.css";
+
+@custom-variant dark (&:is(.dark *));
+@custom-variant light (&:is(.light *));
+
+/*
+ * Vehicle Repair Locator — Gold / Yellow / Black design system.
+ * Dark mode by default. All tokens in oklch.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+}
+
+/* Dark theme is the default (root). We keep .dark identical for shadcn variants. */
+:root {
+  --radius: 0.75rem;
+
+  /* Black / charcoal surfaces */
+  --background: oklch(0.14 0.008 90); /* near-black warm */
+  --foreground: oklch(0.96 0.02 90); /* off-white cream */
+  --card: oklch(0.18 0.01 90); /* charcoal card */
+  --card-foreground: oklch(0.96 0.02 90);
+  --popover: oklch(0.18 0.01 90);
+  --popover-foreground: oklch(0.96 0.02 90);
+
+  /* Yellow = primary CTA */
+  --primary: oklch(0.86 0.18 95); /* vivid yellow */
+  --primary-foreground: oklch(0.16 0.01 90);
+
+  /* Gold = accent */
+  --gold: oklch(0.78 0.13 82); /* rich gold */
+  --gold-foreground: oklch(0.14 0.01 90);
+
+  --secondary: oklch(0.24 0.015 90);
+  --secondary-foreground: oklch(0.96 0.02 90);
+  --muted: oklch(0.22 0.012 90);
+  --muted-foreground: oklch(0.7 0.02 90);
+  --accent: oklch(0.78 0.13 82); /* gold accent */
+  --accent-foreground: oklch(0.14 0.01 90);
+  --destructive: oklch(0.62 0.22 27);
+  --destructive-foreground: oklch(0.98 0.01 90);
+
+  --border: oklch(0.28 0.02 85 / 60%);
+  --input: oklch(0.24 0.015 90);
+  --ring: oklch(0.78 0.13 82); /* gold ring */
+
+  --chart-1: oklch(0.86 0.18 95);
+  --chart-2: oklch(0.78 0.13 82);
+  --chart-3: oklch(0.62 0.1 70);
+  --chart-4: oklch(0.5 0.08 60);
+  --chart-5: oklch(0.35 0.05 80);
+
+  --sidebar: oklch(0.16 0.01 90);
+  --sidebar-foreground: oklch(0.96 0.02 90);
+  --sidebar-primary: oklch(0.86 0.18 95);
+  --sidebar-primary-foreground: oklch(0.16 0.01 90);
+  --sidebar-accent: oklch(0.22 0.012 90);
+  --sidebar-accent-foreground: oklch(0.96 0.02 90);
+  --sidebar-border: oklch(0.28 0.02 85 / 60%);
+  --sidebar-ring: oklch(0.78 0.13 82);
+}
+
+.dark {
+  --background: oklch(0.14 0.008 90);
+  --foreground: oklch(0.96 0.02 90);
+  --card: oklch(0.18 0.01 90);
+  --card-foreground: oklch(0.96 0.02 90);
+  --popover: oklch(0.18 0.01 90);
+  --popover-foreground: oklch(0.96 0.02 90);
+  --primary: oklch(0.86 0.18 95);
+  --primary-foreground: oklch(0.16 0.01 90);
+  --gold: oklch(0.78 0.13 82);
+  --gold-foreground: oklch(0.14 0.01 90);
+  --secondary: oklch(0.24 0.015 90);
+  --secondary-foreground: oklch(0.96 0.02 90);
+  --muted: oklch(0.22 0.012 90);
+  --muted-foreground: oklch(0.7 0.02 90);
+  --accent: oklch(0.78 0.13 82);
+  --accent-foreground: oklch(0.14 0.01 90);
+  --destructive: oklch(0.62 0.22 27);
+  --destructive-foreground: oklch(0.98 0.01 90);
+  --border: oklch(0.28 0.02 85 / 60%);
+  --input: oklch(0.24 0.015 90);
+  --ring: oklch(0.78 0.13 82);
+  --sidebar: oklch(0.16 0.01 90);
+  --sidebar-foreground: oklch(0.96 0.02 90);
+  --sidebar-primary: oklch(0.86 0.18 95);
+  --sidebar-primary-foreground: oklch(0.16 0.01 90);
+  --sidebar-accent: oklch(0.22 0.012 90);
+  --sidebar-accent-foreground: oklch(0.96 0.02 90);
+  --sidebar-border: oklch(0.28 0.02 85 / 60%);
+  --sidebar-ring: oklch(0.78 0.13 82);
+}
+
+@utility gold-gradient {
+  background-image: linear-gradient(135deg, oklch(0.86 0.18 95), oklch(0.72 0.14 78));
+}
+
+@utility gold-text-gradient {
+  background-image: linear-gradient(135deg, oklch(0.9 0.17 95), oklch(0.72 0.14 78));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility surface-elevated {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 10px 30px -12px oklch(0 0 0 / 60%);
+}
+
+/* ── Light theme override ──────────────────────────────────────────────── */
+html.light {
+  color-scheme: light;
+
+  --background: oklch(0.98 0.005 90); /* near-white warm */
+  --foreground: oklch(0.15 0.01 90); /* near-black */
+  --card: oklch(0.94 0.008 85); /* warm card */
+  --card-foreground: oklch(0.15 0.01 90);
+  --popover: oklch(0.96 0.006 85);
+  --popover-foreground: oklch(0.15 0.01 90);
+  --primary: oklch(0.72 0.16 82); /* deep gold CTA */
+  --primary-foreground: oklch(0.98 0.005 90);
+  --gold: oklch(0.62 0.14 72); /* darker gold for readability */
+  --gold-foreground: oklch(0.98 0.005 90);
+  --secondary: oklch(0.9 0.012 85);
+  --secondary-foreground: oklch(0.2 0.012 90);
+  --muted: oklch(0.88 0.01 85);
+  --muted-foreground: oklch(0.45 0.02 85);
+  --accent: oklch(0.85 0.12 82);
+  --accent-foreground: oklch(0.15 0.01 90);
+  --destructive: oklch(0.56 0.22 27);
+  --destructive-foreground: oklch(0.98 0.005 90);
+  --border: oklch(0.78 0.02 85 / 70%);
+  --input: oklch(0.9 0.012 85);
+  --ring: oklch(0.62 0.14 72);
+  --sidebar: oklch(0.94 0.008 85);
+  --sidebar-foreground: oklch(0.15 0.01 90);
+  --sidebar-primary: oklch(0.72 0.16 82);
+  --sidebar-primary-foreground: oklch(0.98 0.005 90);
+  --sidebar-accent: oklch(0.9 0.012 85);
+  --sidebar-accent-foreground: oklch(0.2 0.012 90);
+  --sidebar-border: oklch(0.78 0.02 85 / 70%);
+  --sidebar-ring: oklch(0.62 0.14 72);
+}
+
+/* Light mode Leaflet overrides */
+html.light .leaflet-container {
+  background: oklch(0.92 0.01 85);
+}
+html.light .leaflet-control-attribution {
+  background: oklch(0.96 0.006 85 / 90%) !important;
+  color: oklch(0.4 0.02 85) !important;
+}
+html.light .leaflet-popup-content-wrapper {
+  background: oklch(0.98 0.005 90) !important;
+  color: oklch(0.15 0.01 90) !important;
+  border: 1px solid oklch(0.78 0.02 85 / 70%) !important;
+}
+html.light .leaflet-popup-tip-container .leaflet-popup-tip {
+  background: oklch(0.98 0.005 90) !important;
+}
+html.light .leaflet-control-zoom a {
+  background: oklch(0.96 0.006 85 / 95%) !important;
+  color: oklch(0.15 0.01 90) !important;
+  border-color: oklch(0.78 0.02 85 / 70%) !important;
+}
+
+/* ── Green pulse animation for owner marker ─────────────────────────────── */
+@keyframes user-ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  70% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.user-ping-ring {
+  animation: user-ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    color-scheme: dark;
+    background-color: var(--color-background);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+}
+
+/* ── Leaflet dark-mode overrides ─────────────────────────────────────────── */
+
+.leaflet-container {
+  background: oklch(0.14 0.008 90);
+  font-family: var(--font-sans);
+}
+
+/* attribution pill */
+.leaflet-control-attribution {
+  background: oklch(0.18 0.01 90 / 85%) !important;
+  color: oklch(0.7 0.02 90) !important;
+  font-size: 9px !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
+  backdrop-filter: blur(4px);
+}
+
+.leaflet-control-attribution a {
+  color: oklch(0.78 0.13 82) !important;
+}
+
+/* zoom buttons */
+.leaflet-control-zoom a {
+  background: oklch(0.18 0.01 90 / 90%) !important;
+  color: oklch(0.96 0.02 90) !important;
+  border-color: oklch(0.28 0.02 85 / 60%) !important;
+  backdrop-filter: blur(4px);
+}
+
+.leaflet-control-zoom a:hover {
+  background: oklch(0.24 0.015 90) !important;
+  color: oklch(0.86 0.18 95) !important;
+}
+
+/* Popup */
+.leaflet-popup-content-wrapper {
+  background: oklch(0.18 0.01 90) !important;
+  color: oklch(0.96 0.02 90) !important;
+  border: 1px solid oklch(0.28 0.02 85 / 60%) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 30px -8px oklch(0 0 0 / 70%) !important;
+  padding: 0 !important;
+}
+
+.leaflet-popup-content {
+  margin: 12px 14px !important;
+}
+
+.leaflet-popup-tip-container .leaflet-popup-tip {
+  background: oklch(0.18 0.01 90) !important;
+}
+
+.leaflet-popup-close-button {
+  color: oklch(0.7 0.02 90) !important;
+  top: 6px !important;
+  right: 8px !important;
+}
+
+.leaflet-popup-close-button:hover {
+  color: oklch(0.86 0.18 95) !important;
+}
