@@ -200,7 +200,7 @@ function OwnerDashboard() {
         )}
 
         {/* Search bar with Autocomplete Dropdown */}
-        <div className="relative z-[500] mb-4 flex flex-col gap-2 sm:mb-6 sm:flex-row sm:gap-3">
+        <div className="relative z-[2000] mb-4 flex flex-col gap-2 sm:mb-6 sm:flex-row sm:gap-3">
           <div className="relative flex-1">
             <div className="surface-elevated flex items-center rounded-xl px-2 py-0.5 sm:rounded-2xl">
               <Search className="ml-2 h-4 w-4 text-muted-foreground" />
