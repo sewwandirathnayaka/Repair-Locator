@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect } from "react";
-import { MapPin, Search, Shield, Star, Smartphone } from "lucide-react";
+import { MapPin, Search, Shield, Star, Smartphone, Zap } from "lucide-react";
 import { AppHeader } from "@/components/AppHeader";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/context/AuthContext";
