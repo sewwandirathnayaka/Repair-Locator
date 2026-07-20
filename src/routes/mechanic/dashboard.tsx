@@ -409,7 +409,7 @@ function MechanicDashboardPage() {
         </div>
 
         {/* ── Active Help Requests ── */}
-        <div className="mt-6 surface-elevated rounded-2xl p-6">
+        <div id="requests-section" className="mt-6 surface-elevated rounded-2xl p-6">
           <div className="flex items-center justify-between mb-4">
             <h2 className="font-semibold text-lg flex items-center gap-2">
               <AlertTriangle className="h-5 w-5 text-destructive" />

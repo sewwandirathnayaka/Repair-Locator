@@ -347,7 +347,7 @@ function LocateControl({ coords }: { coords: Coords }) {
         e.stopPropagation();
         map.setView([coords.lat, coords.lng], 15, { animate: true });
       }}
-      className="absolute bottom-16 right-3 z-[1000] flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background shadow-md hover:bg-muted"
+      className="absolute bottom-32 right-3 z-[1000] flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background shadow-md hover:bg-muted"
       title="Locate Me"
       aria-label="Locate Me"
     >
