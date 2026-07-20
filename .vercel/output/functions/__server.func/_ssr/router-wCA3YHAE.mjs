@@ -7,10 +7,10 @@ import { n as ClerkProvider$1, t as AuthProvider } from "./AuthContext-mG2zIe-Y.
 import { t as Toaster } from "../_libs/sonner.mjs";
 import { t as QueryClient } from "../_libs/tanstack__query-core.mjs";
 import { n as QueryClientProvider } from "../_libs/tanstack__react-query.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/router-CGfCRjU-.js
+//#region node_modules/.nitro/vite/services/ssr/assets/router-wCA3YHAE.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
-var styles_default = "/assets/styles-Cra9ZIrQ.css";
+var styles_default = "/assets/styles-BviM3cNG.css";
 function reportLovableError(error, context = {}) {
 	if (typeof window === "undefined") return;
 	window.__lovableEvents?.captureException?.(error, {
@@ -184,7 +184,7 @@ var $$splitComponentImporter$8 = () => import("./routes-MUwQfheR.mjs");
 var Route$8 = createFileRoute("/")({ component: lazyRouteComponent($$splitComponentImporter$8, "component") });
 var $$splitComponentImporter$7 = () => import("./admin-Dpv8S1SS.mjs");
 var Route$7 = createFileRoute("/admin")({ component: lazyRouteComponent($$splitComponentImporter$7, "component") });
-var $$splitComponentImporter$6 = () => import("./dashboard-Buan6eBh.mjs");
+var $$splitComponentImporter$6 = () => import("./dashboard-AxhUvWr4.mjs");
 var Route$6 = createFileRoute("/dashboard")({ component: lazyRouteComponent($$splitComponentImporter$6, "component") });
 var $$splitComponentImporter$5 = () => import("./login-Ceo9ub8n.mjs");
 var Route$5 = createFileRoute("/login")({ component: lazyRouteComponent($$splitComponentImporter$5, "component") });
@@ -192,7 +192,7 @@ var $$splitComponentImporter$4 = () => import("./signup-38CRG5YC.mjs");
 var Route$4 = createFileRoute("/signup")({ component: lazyRouteComponent($$splitComponentImporter$4, "component") });
 var $$splitComponentImporter$3 = () => import("./verify-email-BSEEOZ9X.mjs");
 var Route$3 = createFileRoute("/verify-email")({ component: lazyRouteComponent($$splitComponentImporter$3, "component") });
-var $$splitComponentImporter$2 = () => import("./dashboard-IT9pwo3v.mjs");
+var $$splitComponentImporter$2 = () => import("./dashboard-CE361DY0.mjs");
 var Route$2 = createFileRoute("/mechanic/dashboard")({ component: lazyRouteComponent($$splitComponentImporter$2, "component") });
 var $$splitComponentImporter$1 = () => import("./pending-Du7daySf.mjs");
 var Route$1 = createFileRoute("/mechanic/pending")({ component: lazyRouteComponent($$splitComponentImporter$1, "component") });

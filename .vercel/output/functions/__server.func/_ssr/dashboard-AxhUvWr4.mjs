@@ -11,7 +11,7 @@ import { n as Label, t as Input } from "./label-W_FRS3pT.mjs";
 import { t as KURUNEGALA_CENTER } from "./types-C5anW29c.mjs";
 import { t as useGeolocation } from "./useGeolocation-CixJ_UuI.mjs";
 import { t as useQuery } from "../_libs/tanstack__react-query.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/dashboard-Buan6eBh.js
+//#region node_modules/.nitro/vite/services/ssr/assets/dashboard-AxhUvWr4.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 /**
@@ -39,7 +39,7 @@ function useMechanics(coords) {
 		retry: 1
 	});
 }
-var LeafletMap = (0, import_react.lazy)(() => import("./LeafletMap-Dkg2OuEt.mjs").then((m) => ({ default: m.LeafletMap })));
+var LeafletMap = (0, import_react.lazy)(() => import("./LeafletMap-f5507Qb6.mjs").then((m) => ({ default: m.LeafletMap })));
 function OwnerDashboard() {
 	const { user, loading } = useAuth();
 	const navigate = useNavigate();

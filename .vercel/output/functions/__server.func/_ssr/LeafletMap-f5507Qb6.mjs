@@ -4,7 +4,7 @@ import { o as require_jsx_runtime } from "../_libs/@radix-ui/react-collection+[.
 import { n as useTheme } from "./ThemeContext-DREed0KF.mjs";
 import { t as require_leaflet_src } from "../_libs/leaflet.mjs";
 import { a as MapContainer, i as Marker, n as Popup, o as Circle, r as Polyline, s as useMap, t as TileLayer } from "../_libs/react-leaflet.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/LeafletMap-Dkg2OuEt.js
+//#region node_modules/.nitro/vite/services/ssr/assets/LeafletMap-f5507Qb6.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var import_leaflet_src = /* @__PURE__ */ __toESM(require_leaflet_src());
@@ -371,7 +371,7 @@ function LocateControl({ coords }) {
 			e.stopPropagation();
 			map.setView([coords.lat, coords.lng], 15, { animate: true });
 		},
-		className: "absolute bottom-16 right-3 z-[1000] flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background shadow-md hover:bg-muted",
+		className: "absolute top-4 right-3 z-[1000] flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background shadow-md hover:bg-muted",
 		title: "Locate Me",
 		"aria-label": "Locate Me",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {

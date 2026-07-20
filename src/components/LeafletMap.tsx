@@ -1,4 +1,5 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Navigation } from "lucide-react";
 import { MapContainer, TileLayer, Marker, Popup, useMap, Circle, Polyline } from "react-leaflet";
 import L from "leaflet";
 import type { Mechanic, Coords } from "@/types";
@@ -116,17 +117,20 @@ export function LeafletMap({
   activeRequest,
   onRequestMechanic,
 }: LeafletMapProps) {
+  const [mapRef, setMapRef] = useState<L.Map | null>(null);
+
   return (
-    <div className="relative overflow-hidden rounded-xl border border-border h-full w-full">
-      <MapContainer
-        center={[userCoords.lat, userCoords.lng]}
-        zoom={14}
-        style={{ height: "100%", width: "100%", borderRadius: "0.75rem" }}
-        zoomControl={false}
-        attributionControl={false}
-      >
-        <LocateControl coords={userCoords} />
-        <ThemedTileLayer />
+    <div className="flex flex-col h-full w-full gap-3">
+      <div className="relative flex-1 overflow-hidden rounded-xl border border-border">
+        <MapContainer
+          ref={setMapRef}
+          center={[userCoords.lat, userCoords.lng]}
+          zoom={14}
+          style={{ height: "100%", width: "100%" }}
+          zoomControl={false}
+          attributionControl={false}
+        >
+          <ThemedTileLayer />
         <RecenterMap coords={userCoords} />
 
         {/* User location — light green pulsing marker */}
@@ -306,66 +310,40 @@ export function LeafletMap({
           );
         })}
       </MapContainer>
+      </div>
 
-      {/* Legend */}
-      <div className="absolute top-3 left-3 z-[1000] flex items-center gap-3 rounded-lg border border-border bg-background/80 px-3 py-1.5 text-xs text-muted-foreground backdrop-blur-sm shadow-md">
-        <span className="inline-flex items-center gap-1.5">
-          <span
-            className="inline-block h-2.5 w-2.5 rounded-full"
-            style={{ background: "#4ade80" }}
-          />
-          You
-        </span>
-        <span className="inline-flex items-center gap-1.5">
-          <span
-            className="inline-block h-2.5 w-2.5 rounded-full"
-            style={{ background: "#f5e642" }}
-          />
-          Garage
-        </span>
-        {activeRequest && (
-          <span className="inline-flex items-center gap-1.5">
-            <span
-              className="inline-block h-2.5 w-2.5 rounded-full"
-              style={{ background: "#ef4444" }}
-            />
-            SOS
+      {/* Legend & Controls Footer */}
+      <div className="flex items-center justify-between rounded-xl border border-border bg-card px-4 py-3 text-sm text-muted-foreground shadow-sm">
+        <div className="flex flex-wrap gap-4">
+          <span className="flex items-center gap-1.5 font-medium">
+            <span className="inline-block h-3 w-3 rounded-full bg-green-400 shadow-sm" />
+            You
           </span>
-        )}
+          <span className="flex items-center gap-1.5 font-medium">
+            <span className="inline-block h-3 w-3 rounded-full bg-gold shadow-sm" />
+            Garage
+          </span>
+          {activeRequest && (
+            <span className="flex items-center gap-1.5 font-medium text-destructive">
+              <span className="inline-block h-3 w-3 rounded-full bg-destructive shadow-sm animate-pulse" />
+              SOS
+            </span>
+          )}
+        </div>
+        
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            if (mapRef) {
+              mapRef.setView([userCoords.lat, userCoords.lng], 15, { animate: true });
+            }
+          }}
+          className="flex items-center gap-1.5 font-semibold text-foreground hover:text-primary transition-colors"
+        >
+          <Navigation className="h-4 w-4 text-primary" />
+          Locate Me
+        </button>
       </div>
     </div>
-  );
-}
-
-// ─── Locate Control component ────────────────────────────────────────────────
-function LocateControl({ coords }: { coords: Coords }) {
-  const map = useMap();
-  return (
-    <button
-      onClick={(e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        map.setView([coords.lat, coords.lng], 15, { animate: true });
-      }}
-      className="absolute top-4 right-3 z-[1000] flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background shadow-md hover:bg-muted"
-      title="Locate Me"
-      aria-label="Locate Me"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="text-primary"
-      >
-        <circle cx="12" cy="12" r="10"></circle>
-        <circle cx="12" cy="12" r="3"></circle>
-      </svg>
-    </button>
   );
 }

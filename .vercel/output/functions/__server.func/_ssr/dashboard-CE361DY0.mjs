@@ -9,7 +9,7 @@ import { t as Badge } from "./badge-D-882LVm.mjs";
 import { n as toast } from "../_libs/sonner.mjs";
 import { t as KURUNEGALA_CENTER } from "./types-C5anW29c.mjs";
 import { t as useGeolocation } from "./useGeolocation-CixJ_UuI.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/dashboard-IT9pwo3v.js
+//#region node_modules/.nitro/vite/services/ssr/assets/dashboard-CE361DY0.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 function MechanicDashboardPage() {
@@ -84,6 +84,10 @@ function MechanicDashboardPage() {
 								const el = document.getElementById("requests-section");
 								if (el) {
 									el.scrollIntoView({ behavior: "smooth" });
+									el.classList.add("ring-4", "ring-destructive", "bg-destructive/5");
+									setTimeout(() => {
+										el.classList.remove("ring-4", "ring-destructive", "bg-destructive/5");
+									}, 2e3);
 									setTimeout(() => window.scrollTo({
 										top: el.getBoundingClientRect().top + window.scrollY - 100,
 										behavior: "smooth"
@@ -235,6 +239,10 @@ function MechanicDashboardPage() {
 									const el = document.getElementById("requests-section");
 									if (el) {
 										el.scrollIntoView({ behavior: "smooth" });
+										el.classList.add("ring-4", "ring-destructive", "bg-destructive/5");
+										setTimeout(() => {
+											el.classList.remove("ring-4", "ring-destructive", "bg-destructive/5");
+										}, 2e3);
 										setTimeout(() => window.scrollTo({
 											top: el.getBoundingClientRect().top + window.scrollY - 100,
 											behavior: "smooth"
@@ -386,6 +394,7 @@ function MechanicDashboardPage() {
 						})]
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						id: "requests-section",
 						className: "mt-6 surface-elevated rounded-2xl p-6",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 							className: "flex items-center justify-between mb-4",
