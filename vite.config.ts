@@ -18,7 +18,7 @@ export default defineConfig({
   vite: {
     build: {
       rollupOptions: {
-        external: ["mongodb"],
+        external: ["punycode"],
       },
     },
     optimizeDeps: {

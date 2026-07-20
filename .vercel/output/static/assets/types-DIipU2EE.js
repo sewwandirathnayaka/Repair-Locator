@@ -1,0 +1,1 @@
+var e={lat:7.4818,lng:80.3609};export{e as t};
