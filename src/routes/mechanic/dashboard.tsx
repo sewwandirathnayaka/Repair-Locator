@@ -107,6 +107,10 @@ function MechanicDashboardPage() {
                       const el = document.getElementById("requests-section");
                       if (el) {
                         el.scrollIntoView({ behavior: "smooth" });
+                        el.classList.add("ring-4", "ring-destructive", "bg-destructive/5");
+                        setTimeout(() => {
+                          el.classList.remove("ring-4", "ring-destructive", "bg-destructive/5");
+                        }, 2000);
                         setTimeout(
                           () =>
                             window.scrollTo({
@@ -268,6 +272,11 @@ function MechanicDashboardPage() {
                 const el = document.getElementById("requests-section");
                 if (el) {
                   el.scrollIntoView({ behavior: "smooth" });
+                  // Add a temporary highlight effect
+                  el.classList.add("ring-4", "ring-destructive", "bg-destructive/5");
+                  setTimeout(() => {
+                    el.classList.remove("ring-4", "ring-destructive", "bg-destructive/5");
+                  }, 2000);
                   setTimeout(
                     () =>
                       window.scrollTo({
